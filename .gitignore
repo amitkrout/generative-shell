@@ -9,5 +9,9 @@ build/*
 # Logs
 *.log
 
-# Other
+# Os
 .DS_Store
+Thumbs.db
+
+# Coverage
+coverage.out
