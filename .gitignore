@@ -1,0 +1,13 @@
+# IDE
+.idea/
+.vscode/
+
+# Build
+build/*
+!build/.gitkeep
+
+# Logs
+*.log
+
+# Other
+.DS_Store
