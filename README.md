@@ -24,6 +24,12 @@ To use the OpenAI API, you will need an API key. Here's how you can obtain it:
 * [Linux](docs/linux.md)
 * [Windows](docs/windows.md)
 
+## How it works - Video reference
+
+For better understanding, please follow the quick video reference
+
+<iframe width="560" height="315" src="https://github.com/amitkrout/generative-shell/blob/main/tutorials/basic.webm" frameborder="0" allowfullscreen></iframe>
+
 ## Training Data
 
 The model used in this project has been trained on a specific dataset to provide shell command suggestions. If you would like to customize the training data or improve the model's performance, you can modify the `training-template.go` file located in the `pkg` directory. This file contains example of input prompts and their corresponding expected output in template.
