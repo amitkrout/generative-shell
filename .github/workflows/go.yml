@@ -37,8 +37,12 @@ jobs:
         version: v1.53
         args: --timeout 10m
     
-    - name: Build
-      run: go build -v ./...
+    - name: Unit tests
+      run: make unit_test
 
-    - name: Test
-      run: go test -v ./...
+    - name: Install gox
+      uses: actions/setup-gox@v1
+
+    - name: Build
+      run: make build_all
+
