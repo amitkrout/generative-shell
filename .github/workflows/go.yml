@@ -41,7 +41,7 @@ jobs:
       run: make unit_test
 
     - name: Install gox
-      uses: actions/setup-gox@v1
+      run: go install github.com/mitchellh/gox@latest
 
     - name: Build
       run: make build_all
