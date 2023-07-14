@@ -12,6 +12,7 @@ import (
 )
 
 func main() {
+
 	if !pkg.PreChecksAPIkey() {
 		fmt.Println("Please set your API key as an environment variable named OPENAI_API_KEY")
 		return
@@ -20,6 +21,7 @@ func main() {
 	reader := bufio.NewReader(os.Stdin)
 
 	for {
+
 		pkg.MyPromptFormat()
 
 		request, _ := reader.ReadString('\n')
@@ -37,7 +39,6 @@ func main() {
 		pkg.Prompt += command
 
 		confirm := false
-
 		promptRun := fmt.Sprintf(">>> Run: \033[34m%s\033[0m", command)
 		if err = survey.AskOne(&survey.Confirm{Message: promptRun, Default: confirm}, &confirm); err != nil {
 			fmt.Println(err)
