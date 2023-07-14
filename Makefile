@@ -24,9 +24,15 @@ coverage: unit_test
 	@echo "Generating coverage report"
 	@go tool cover -html=coverage.out
 
+## build_all: Perform cross-compilation for multiple platforms
+build_all: clean
+	@echo "Performing cross-compilation"
+	@gox -osarch="linux/amd64 windows/amd64 darwin/amd64" -output="build/$(ProjectName)-{{.OS}}-{{.Arch}}" .
+
 ## help: Show this help message
 help: Makefile
 	@echo "Usage: make [target]"
 	@echo
 	@echo "Targets:"
 	@sed -n 's/^##//p' $<
+	@echo
