@@ -1,11 +1,9 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"os"
 	"os/exec"
-	"strings"
 
 	"github.com/AlecAivazis/survey/v2"
 	"github.com/generative-shell/pkg"
@@ -18,17 +16,10 @@ func main() {
 		return
 	}
 
-	reader := bufio.NewReader(os.Stdin)
-
 	for {
 
 		pkg.MyPromptFormat()
-
-		request, _ := reader.ReadString('\n')
-		request = strings.TrimSpace(request)
-
-		prompt, template := pkg.PromptRunsOnShellType()
-		prompt += fmt.Sprintf(template, request)
+		pkg.KeyboardInput()
 
 		resp, err := pkg.Completion()
 		if err != nil {
@@ -37,7 +28,6 @@ func main() {
 		}
 
 		command := resp.Choices[0].Text
-		prompt += command
 
 		confirm := false
 		promptRun := fmt.Sprintf(">>> Run: \033[34m%s\033[0m", command)
