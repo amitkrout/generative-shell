@@ -27,7 +27,8 @@ func main() {
 		request, _ := reader.ReadString('\n')
 		request = strings.TrimSpace(request)
 
-		pkg.Prompt += fmt.Sprintf(pkg.Template, request)
+		prompt, template := pkg.PromptRunsOnShellType()
+		prompt += fmt.Sprintf(template, request)
 
 		resp, err := pkg.Completion()
 		if err != nil {
@@ -36,7 +37,7 @@ func main() {
 		}
 
 		command := resp.Choices[0].Text
-		pkg.Prompt += command
+		prompt += command
 
 		confirm := false
 		promptRun := fmt.Sprintf(">>> Run: \033[34m%s\033[0m", command)
