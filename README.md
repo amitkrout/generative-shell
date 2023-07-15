@@ -14,7 +14,7 @@ This project is an interactive shell prompt developed using Golang (Go libarary 
 To use the OpenAI API, you will need an API key. Here's how you can obtain it:
 
 * Visit the [OpenAI website](https://openai.com/) and sign in to your account (or create a new one if you don't have an account yet).
-* Navigate to the API section or visit the [API settings page](https://platform.openai.com/signup?type=api).
+* Navigate to the API section or visit the [API settings page](https://platform.openai.com/account/api-keys).
 * Follow the instructions provided by OpenAI to generate your API key.
 * Once you have generated your API key, make sure to securely store it as it will be used to authenticate your requests to the OpenAI API.
 
