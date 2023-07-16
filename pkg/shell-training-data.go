@@ -1,12 +1,12 @@
 package pkg
 
 var (
-	Template = `
+	TemplateShell = `
 Input: %s
 Output:
 `
 
-	Prompt = `
+	PromptShell = `
 Input: List files
 Output: ls -a
 

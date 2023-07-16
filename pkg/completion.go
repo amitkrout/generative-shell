@@ -10,7 +10,7 @@ import (
 func CompletionRequestBody() openai.CompletionRequest {
 	return openai.CompletionRequest{
 		Model:       Model,
-		Prompt:      Prompt,
+		Prompt:      Prompt(),
 		MaxTokens:   MaxTokens,
 		Stop:        []string{"\n"},
 		Temperature: 0.0,
