@@ -39,10 +39,7 @@ func main() {
 			cmd := exec.Command("bash", "-c", command)
 			cmd.Stdout = os.Stdout
 			cmd.Stderr = os.Stderr
-			if err = cmd.Run(); err != nil {
-				fmt.Println(err)
-				return
-			}
+			cmd.Run()
 		}
 	}
 }
