@@ -39,7 +39,7 @@ func main() {
 			cmd := exec.Command("bash", "-c", command)
 			cmd.Stdout = os.Stdout
 			cmd.Stderr = os.Stderr
-			cmd.Run()
+			cmd.Run() //nolint:errcheck
 		}
 	}
 }
