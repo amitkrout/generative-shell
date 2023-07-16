@@ -19,7 +19,6 @@ func main() {
 	for {
 
 		pkg.MyPromptFormat()
-		//pkg.KeyboardInput()
 
 		resp, err := pkg.Completion()
 		if err != nil {

@@ -58,7 +58,7 @@ func PromptRunsOnShellType() (string, string) {
 func Prompt() string {
 	prompt, _ := PromptRunsOnShellType()
 	if prompt == "" {
-		err := fmt.Errorf("error: could not determine shell type")
+		err := fmt.Errorf("error: unsupported shell type")
 		panic(err)
 	}
 	return prompt + fmt.Sprintf(Template(), KeyboardInput())
@@ -67,7 +67,7 @@ func Prompt() string {
 func Template() string {
 	_, template := PromptRunsOnShellType()
 	if template == "" {
-		err := fmt.Errorf("error: could not determine shell type")
+		err := fmt.Errorf("error: unsupported shell type")
 		panic(err)
 	}
 	return template
