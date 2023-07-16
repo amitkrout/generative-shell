@@ -61,7 +61,7 @@ func Prompt() string {
 		err := fmt.Errorf("error: could not determine shell type")
 		panic(err)
 	}
-	return prompt
+	return prompt + fmt.Sprintf(Template(), KeyboardInput())
 }
 
 func Template() string {
