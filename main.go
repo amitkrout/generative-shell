@@ -35,11 +35,15 @@ func main() {
 			return
 		}
 
+		program, subCommand := pkg.ProgramAndSubcommand()
+
 		if confirm {
-			cmd := exec.Command("bash", "-c", command)
+			cmd := exec.Command(program, subCommand, command)
 			cmd.Stdout = os.Stdout
 			cmd.Stderr = os.Stderr
-			cmd.Run() //nolint:errcheck
+			if err = cmd.Run(); err != nil {
+				fmt.Println(err)
+			}
 		}
 	}
 }

@@ -66,3 +66,21 @@ func Template() string {
 	}
 	return template
 }
+
+func ProgramAndSubcommand() (string, string) {
+	terminalName := DetectTerminalType()
+	switch {
+	case terminalName == "bash":
+		return "bash", "-c"
+	case terminalName == "zsh":
+		return "zsh", "-c"
+	case terminalName == "sh":
+		return "sh", "-c"
+	case terminalName == "cmd":
+		return "cmd", "/C"
+	case terminalName == "powershell":
+		return "powershell", "-Command"
+	default:
+		return "", ""
+	}
+}
