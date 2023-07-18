@@ -28,7 +28,7 @@ $env:SHELL="PS"
 set OPENAI_API_KEY=<your-api-key>
 # IMPORTANT: Never forget to set the environment variable SHELL=CMD,
 # otherwise the prompt initialization will panic out.
-set OPENAI_API_KEY=CMD
+set SHELL=CMD
 ```
 * Run the binary:
 ```shell
