@@ -10,6 +10,9 @@
 ```shell
 # Replace <your-api-key> with the actual API key you obtained from the Obtaining an OpenAI API Key section.
 $env:OPENAI_API_KEY="<your-api-key>"
+# IMPORTANT: Never forget to set the environment variable SHELL=PS,
+# otherwise the prompt initialization will panic out.
+$env:SHELL="PS"
 ```
 * Run the binary:
 ```shell
@@ -23,6 +26,9 @@ $env:OPENAI_API_KEY="<your-api-key>"
 ```shell
 # Replace <your-api-key> with the actual API key you obtained from the Obtaining an OpenAI API Key section.
 set OPENAI_API_KEY=<your-api-key>
+# IMPORTANT: Never forget to set the environment variable SHELL=CMD,
+# otherwise the prompt initialization will panic out.
+set OPENAI_API_KEY=CMD
 ```
 * Run the binary:
 ```shell
