@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"runtime"
 	"strings"
 )
 
@@ -14,41 +13,36 @@ func KeyboardInput() string {
 	return strings.TrimSpace(request)
 }
 
-func PlatformAndTerm() (string, string) {
-	var osType string = runtime.GOOS
+func DetectTerminalType() string {
+	var shellType string = os.Getenv("SHELL")
 
-	if osType == "linux" {
-		return "linux", "bash"
-	} else if osType == "darwin" {
-		return "mac", "bash"
-	} else if osType == "windows" {
-		var term string = os.Getenv("TERM")
-		if term == "cygwin" {
-			return "windows", "bash"
-		} else if term == "cmd" {
-			return "windows", "cmd"
-		} else if term == "powershell" {
-			return "windows", "powershell"
-		} else {
-			return "", ""
-		}
+	if strings.Contains(strings.TrimSpace(shellType), "bash") {
+		return "bash"
+	} else if strings.Contains(strings.TrimSpace(shellType), "zsh") {
+		return "zsh"
+	} else if strings.Contains(strings.TrimSpace(shellType), "sh") {
+		return "sh"
+	} else if strings.Contains(strings.TrimSpace(shellType), "CMD") {
+		return "cmd"
+	} else if strings.Contains(strings.TrimSpace(shellType), "PS") {
+		return "powershell"
 	} else {
-		return "", ""
+		return ""
 	}
 }
 
 func PromptRunsOnShellType() (string, string) {
-	platform, terminal := PlatformAndTerm()
+	terminalName := DetectTerminalType()
 	switch {
-	case platform == "linux" && terminal == "bash":
+	case terminalName == "bash":
 		return PromptShell, TemplateShell
-	case platform == "mac" && terminal == "bash":
+	case terminalName == "zsh":
 		return PromptShell, TemplateShell
-	case platform == "windows" && terminal == "bash":
+	case terminalName == "sh":
 		return PromptShell, TemplateShell
-	case platform == "windows" && terminal == "cmd":
+	case terminalName == "cmd":
 		return PromptCMD, TemplateCMD
-	case platform == "windows" && terminal == "powershell":
+	case terminalName == "powershell":
 		return PromptPS, TemplatePS
 	default:
 		return "", ""
