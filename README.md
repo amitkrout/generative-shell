@@ -30,7 +30,7 @@ For better understanding, please check the [example video](https://github.com/am
 
 ## Training Data
 
-The model used in this project has been trained on a specific dataset to provide shell command suggestions. If you would like to customize the training data or improve the model's performance, you can modify the `training-template.go` file located in the `pkg` directory. This file contains example of input prompts and their corresponding expected output in template.
+The model used in this project has been trained on a specific dataset to provide shell command suggestions. If you would like to customize the training data or improve the model's performance, you can modify the `*-training-template.go` file located in the `trainingdata` directory in the root folder. This file contains example of input prompts and their corresponding expected output in template.
 
 ## Contributing
 
