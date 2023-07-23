@@ -1,11 +1,13 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"os"
 	"os/exec"
+	"strings"
+	"time"
 
-	"github.com/AlecAivazis/survey/v2"
 	"github.com/generative-shell/pkg"
 )
 
@@ -27,21 +29,26 @@ func main() {
 		}
 
 		command := resp.Choices[0].Text
+		time.Sleep(5 * time.Second)
 
-		confirm := false
-		promptRun := fmt.Sprintf(">>> Run: \033[34m%s\033[0m", command)
-		if err = survey.AskOne(&survey.Confirm{Message: promptRun, Default: confirm}, &confirm); err != nil {
-			fmt.Println(err)
-			return
-		}
+		pkg.GenerateOpFormat(command)
 
-		program, subCommand := pkg.ProgramAndSubcommand()
+		scanner := bufio.NewScanner(os.Stdin)
+		scanner.Scan()
+		input := strings.ToLower(strings.TrimSpace(scanner.Text()))
 
-		if confirm {
-			cmd := exec.Command(program, subCommand, command)
+		program, flag := pkg.ProgramAndSubcommand()
+
+		if input == "y" || input == "yes" {
+			cmd := exec.Command(program, flag, command)
 			cmd.Stdout = os.Stdout
 			cmd.Stderr = os.Stderr
-			if err = cmd.Run(); err != nil {
+
+			if err := cmd.Start(); err != nil {
+				fmt.Println(err)
+			}
+
+			if err := cmd.Wait(); err != nil {
 				fmt.Println(err)
 			}
 		}
