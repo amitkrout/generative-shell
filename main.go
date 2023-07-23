@@ -29,7 +29,7 @@ func main() {
 		}
 
 		command := resp.Choices[0].Text
-		time.Sleep(5 * time.Second)
+		time.Sleep(3 * time.Second)
 
 		pkg.GenerateOpFormat(command)
 
