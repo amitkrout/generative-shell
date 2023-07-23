@@ -51,6 +51,10 @@ func main() {
 			if err := cmd.Wait(); err != nil {
 				fmt.Println(err)
 			}
+		} else if input == "n" || input == "no" {
+			fmt.Println("Ok, I won't run that command.")
+		} else {
+			fmt.Println("I didn't understand your input. Please enter y or n. Defaulting to no.")
 		}
 	}
 }
