@@ -44,11 +44,7 @@ func main() {
 			cmd.Stdout = os.Stdout
 			cmd.Stderr = os.Stderr
 
-			if err := cmd.Start(); err != nil {
-				fmt.Println(err)
-			}
-
-			if err := cmd.Wait(); err != nil {
+			if err := cmd.Run(); err != nil {
 				fmt.Println(err)
 			}
 		} else if input == "n" || input == "no" {
