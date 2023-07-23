@@ -1,7 +1,17 @@
 package pkg
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/fatih/color"
+)
 
 func MyPromptFormat() {
-	fmt.Print("\033[31m" + "Ask me> " + "\033[0m")
+	c := color.New(color.FgRed, color.Bold)
+	c.Print("Ask me> ")
+}
+
+func GenerateOpFormat(command string) {
+	output := color.New(color.FgGreen, color.Bold).Sprintf(">>> Run: %s", command)
+	fmt.Print(output + " (y/N) ")
 }
