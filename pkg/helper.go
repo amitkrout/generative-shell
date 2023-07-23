@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"os"
 	"strings"
+
+	"github.com/generative-shell/trainingdata"
 )
 
 func KeyboardInput() string {
@@ -35,15 +37,15 @@ func PromptRunsOnShellType() (string, string) {
 	terminalName := DetectTerminalType()
 	switch {
 	case terminalName == "bash":
-		return PromptShell, TemplateShell
+		return trainingdata.PromptShell, trainingdata.TemplateShell
 	case terminalName == "zsh":
-		return PromptShell, TemplateShell
+		return trainingdata.PromptShell, trainingdata.TemplateShell
 	case terminalName == "sh":
-		return PromptShell, TemplateShell
+		return trainingdata.PromptShell, trainingdata.TemplateShell
 	case terminalName == "cmd":
-		return PromptCMD, TemplateCMD
+		return trainingdata.PromptCMD, trainingdata.TemplateCMD
 	case terminalName == "powershell":
-		return PromptPS, TemplatePS
+		return trainingdata.PromptPS, trainingdata.TemplatePS
 	default:
 		return "", ""
 	}
