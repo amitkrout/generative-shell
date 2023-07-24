@@ -24,11 +24,5 @@ Output: findstr /M /S /I /C:".go" "C:\Path\To\Directory\*.go" | powershell -Comm
 
 Input: Delete the test subdirectory and everything underneath it
 Output: rmdir /s /q "C:\Path\To\Directory\test"
-
-Input: Splunk query for all 500 errors
-Output: index=<app_index> status=500
-
-Input: Splunk query to find out all successful logs
-Output: index=<app_index> <your_text_search_query> status=200
 `
 )

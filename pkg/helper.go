@@ -37,15 +37,15 @@ func PromptRunsOnShellType() (string, string) {
 	terminalName := DetectTerminalType()
 	switch {
 	case terminalName == "bash":
-		return trainingdata.PromptShell, trainingdata.TemplateShell
+		return trainingdata.PromptCommon + trainingdata.PromptShell, trainingdata.TemplateShell
 	case terminalName == "zsh":
-		return trainingdata.PromptShell, trainingdata.TemplateShell
+		return trainingdata.PromptCommon + trainingdata.PromptShell, trainingdata.TemplateShell
 	case terminalName == "sh":
-		return trainingdata.PromptShell, trainingdata.TemplateShell
+		return trainingdata.PromptCommon + trainingdata.PromptShell, trainingdata.TemplateShell
 	case terminalName == "cmd":
-		return trainingdata.PromptCMD, trainingdata.TemplateCMD
+		return trainingdata.PromptCommon + trainingdata.PromptCMD, trainingdata.TemplateCMD
 	case terminalName == "powershell":
-		return trainingdata.PromptPS, trainingdata.TemplatePS
+		return trainingdata.PromptCommon + trainingdata.PromptPS, trainingdata.TemplatePS
 	default:
 		return "", ""
 	}
