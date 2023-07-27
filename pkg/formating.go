@@ -13,6 +13,8 @@ func MyPromptFormat() {
 }
 
 func GenerateOpFormat(command string) {
-	output := color.New(color.FgGreen, color.Bold).Sprintf(">>> Run: %s", strings.TrimSpace(command))
-	fmt.Print(output + " (y/n) ")
+	runOutput := color.New(color.BgHiMagenta, color.Bold).Sprintf(">>> Run:")
+	commandOutput := color.New(color.FgGreen, color.Bold).Sprintf(" %s", strings.TrimSpace(command))
+	confirmOutput := color.New(color.FgMagenta, color.Bold).Sprintf(" (y/n) ")
+	fmt.Print(runOutput, commandOutput, confirmOutput)
 }
