@@ -26,7 +26,8 @@ To use the OpenAI API, you will need an API key. Here's how you can obtain it:
 
 ## How it works - Video reference
 
-[bash terminal](https://github.com/amitkrout/generative-shell/blob/main/tutorials/bash.mp4)
+[Bash terminal](https://github.com/amitkrout/generative-shell/blob/main/tutorials/bash-terminal-commands.mp4)
+[Windows PowerShell](https://github.com/amitkrout/generative-shell/blob/main/tutorials/ps-terminal-commands.mp4)
 
 ## Training Data
 
